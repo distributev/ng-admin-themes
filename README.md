@@ -1,7 +1,7 @@
 # angular-express-crud-demo
 MEAN.js (SEAN.js) customers / transactions Demo App
 
-step 0 - start from an empty C9 node.js project\s\s
+step 0 - start from an empty C9 node.js project  
 step 1 - Install yo, grunt-cli/gulp-cli, bower, and generator-angular-fullstack: npm install -g yo grunt-cli gulp-cli bower generator-angular-fullstack
 step 2 - Install Angular Fullstack CRUD - npm install -g generator-angular-fullstack-crud
 step 3 - run following command to generate a generator-angular-fullstack project boiler plate
