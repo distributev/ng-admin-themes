@@ -11,8 +11,7 @@ The delivery of this project should be a demo app how to get a generator-angular
  The AngularJS service menu service will be tested to add / remove menus in the application menubar.  
    
  P.S - When generating the APP use sequelize / SQL3lite persistence. Generate the authentication boilerplate also   
- (with Google authentication). Change the generated user profile code to save also the user's theme. User's should be allowed to   
- change their preferred bootswatch theme.  
+ (with Google authentication). Change the generated user profile code to save also the user's theme. User's should be allowed to change their preferred bootswatch theme.  
    
  Links  
    
