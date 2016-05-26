@@ -27,7 +27,8 @@ class SettingsController {
          $('#bootstrap_theme').attr('href','https://bootswatch.com/'+name+'/bootstrap.min.css');
       }else{
          $('#bootstrap_theme').attr('href','#');
-      }            
+      } 
+      this.Auth.getCurrentUser().theme = name;           
       this.Auth.changeTheme(name)
         .then(() => {
           this.message = 'Theme updated!';

@@ -10,7 +10,7 @@
           $scope.authenticate = Auth.getCurrentUser().token?true:false;
            if(Auth.getCurrentUser().theme){
              if(Auth.getCurrentUser().theme!=='default'){
-                $('#bootstrap_theme').attr('href','https://bootswatch.com/'+Auth.getCurrentUser().theme+'bootstrap.min.css');
+                $('#bootstrap_theme').attr('href','https://bootswatch.com/'+Auth.getCurrentUser().theme+'/bootstrap.min.css');
              }
               else{
                 $('#bootstrap_theme').attr('href','#');
