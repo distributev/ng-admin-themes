@@ -26,4 +26,13 @@ Run `grunt build` for building and `grunt serve` for preview.
 
 ## Testing
 
-Running `npm test` will run the unit tests with karma.
+Running `npm test` will run the unit tests with karma.  
+
+I add Menus service in folder client/app/service and was referenced in client/app/app.js  
+
+I have put a menu item called Account on top nav which will redirect to  setting page where you can select the theme   
+
+For google login you need to edit server/cofig/local.env.js  to  have domain same as your server url with port:8080(And tell me your server url so that I could change in my google oauth service for that)  
+
+You can either register and sign on or sign on with Google directly and go to account make changes on theme and log back to see the saved theme  
+
