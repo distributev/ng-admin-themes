@@ -15,7 +15,6 @@
                 $("#bootstrap_theme").attr("href","#");
           }
         },500);
-        "https://bootswatch.com/"+name+"/bootstrap.min.css"
 
         $scope.goto = function(name){
           $location.hash(name);

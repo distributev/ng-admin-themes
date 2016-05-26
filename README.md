@@ -36,3 +36,17 @@ For google login you need to edit server/cofig/local.env.js  to  have domain sam
 
 You can either register and sign on or sign on with Google directly and go to account make changes on theme and log back to see the saved theme  
 
+
+I update the main.controller.js in client/app/main to load the user theme after login in  
+
+Also update account settings controller in client/app/account/settings to add change theme function  
+
+I add Menus service in client/app/service  and modify client/app/app.js to add menuItem using menu service  
+
+In the server end I add change theme function to save theme in sqlite database, when create new user, theme was set to "default"  
+
+
+
+
+
+
