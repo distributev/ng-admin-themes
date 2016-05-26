@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Change Password</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="form" ng-submit="vm.changePassword(form)" novalidate>
+
+        <div class="form-group">
+          <label>Current Password</label>
+
+          <input type="password" name="password" class="form-control" ng-model="vm.user.oldPassword"
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.password.$error.mongoose">
+              {{ vm.errors.other }}
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>New Password</label>
+
+          <input type="password" name="newPassword" class="form-control" ng-model="vm.user.newPassword"
+                 ng-minlength="3"
+                 required/>
+          <p class="help-block"
+             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || vm.submitted)">
+            Password must be at least 3 characters.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>Confirm New Password</label>
+
+          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
+                 match="vm.user.newPassword"
+                 ng-minlength="3"
+                 required=""/>
+          <p class="help-block"
+             ng-show="form.confirmPassword.$error.match && vm.submitted">
+            Passwords must match.
+          </p>
+
+        </div>
+
+        <p class="help-block"> {{ vm.message }} </p>
+
+        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+      </form>
+    </div>
+  </div>
+   <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a ng-click="vm.changeTheme('default')">Default</a></li>
+                <li class="divider"></li>
+                <li><a ng-click="vm.changeTheme('cerulean')" id="cerulean" >Cerulean</a></li>
+                <li><a ng-click="vm.changeTheme('cosmo')" id="cosmo" style="cursor: pointer;">Cosmo</a></li>
+                <li><a ng-click="vm.changeTheme('cyborg')" id="cyborg" style="cursor: pointer;">Cyborg</a></li>
+                <li><a ng-click="vm.changeTheme('darkly')"  id="darkly" style="cursor: pointer;">Darkly</a></li>
+                <li><a ng-click="vm.changeTheme('flatly')" id="flatly" style="cursor: pointer;">Flatly</a></li>
+                <li><a ng-click="vm.changeTheme('journal')"  id="journal" style="cursor: pointer;">Journal</a></li>
+                <li><a ng-click="vm.changeTheme('lumen')"  id="lumen" style="cursor: pointer;">Lumen</a></li>
+                <li><a ng-click="vm.changeTheme('paper')" id="paper" style="cursor: pointer;">Paper</a></li>
+                <li><a ng-click="vm.changeTheme('readable')"  id="readable" style="cursor: pointer;">Readable</a></li>
+                <li><a ng-click="vm.changeTheme('sandstone')" id="sandstone" style="cursor: pointer;">Sandstone</a></li>
+                <li><a ng-click="vm.changeTheme('simplex')" id="simplex" style="cursor: pointer;">Simplex</a></li>
+                <li><a ng-click="vm.changeTheme('slate')" id="slate" style="cursor: pointer;">Slate</a></li>
+                <li><a ng-click="vm.changeTheme('spacelab')" id="spacelab" style="cursor: pointer;">Spacelab</a></li>
+                <li><a ng-click="vm.changeTheme('superhero')"  id="superhero" style="cursor: pointer;">Superhero</a></li>
+                <li><a ng-click="vm.changeTheme('united')"  id="united" >United</a></li>
+                <li><a ng-click="vm.changeTheme('yeti')"  id="yeti" style="cursor: pointer;">Yeti</a></li>
+              </ul>
+            </li>
+</div>

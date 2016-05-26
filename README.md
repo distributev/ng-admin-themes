@@ -1,20 +1,29 @@
-The delivery of this project should be a demo app how to get a generator-angular-fullstack generated application and (on top of the   generated app)    
-   
- 1. integrate (apply) https://bootswatch.com  
-   
- and   
-   
- 2. implement http://meanjs.org/docs.html#menus. This is an AngularJS service that helps manage application menus. Look at the linked   code and implement the same capability in this demo (re-use all code which is applicable)  
-   
- Change the generated "user profile" code such that it will save the user preferred theme also (https://bootswatch.com) - Through their  profile page users will be allowed to change/save their preferred theme. When users login the correct theme should be loaded.  
-   
- The AngularJS service menu service will be tested to add / remove menus in the application menubar.  
-   
- P.S - When generating the APP use sequelize / SQL3lite persistence. Generate the authentication boilerplate also   
- (with Google authentication). Change the generated user profile code to save also the user's theme. User's should be allowed to change their preferred bootswatch theme.  
-   
- Links  
-   
- https://github.com/angular-fullstack/generator-angular-fullstack  
- https://bootswatch.com  
- http://meanjs.org/docs.html#menus  
+# bootswatch
+
+This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.7.3.
+
+## Getting Started
+
+### Prerequisites
+
+- [Git](https://git-scm.com/)
+- [Node.js and npm](nodejs.org) Node ^4.2.3, npm ^2.14.7
+- [Bower](bower.io) (`npm install --global bower`)
+- [Gulp](http://gulpjs.com/) (`npm install --global gulp`)
+- [SQLite](https://www.sqlite.org/quickstart.html)
+
+### Developing
+
+1. Run `npm install` to install server dependencies.
+
+2. Run `bower install` to install front-end dependencies.
+
+3. Run `gulp serve` to start the development server. It should automatically open the client in your browser when ready.
+
+## Build & development
+
+Run `grunt build` for building and `grunt serve` for preview.
+
+## Testing
+
+Running `npm test` will run the unit tests with karma.
