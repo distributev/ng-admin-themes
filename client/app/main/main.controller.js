@@ -9,10 +9,12 @@
         $timeout(function(){
           $scope.authenticate = Auth.getCurrentUser().token?true:false;
            if(Auth.getCurrentUser().theme){
-             if(Auth.getCurrentUser().theme!=='default')
-                $("#bootstrap_theme").attr("href","https://bootswatch.com/"+Auth.getCurrentUser().theme+"/bootstrap.min.css");
-              else 
-                $("#bootstrap_theme").attr("href","#");
+             if(Auth.getCurrentUser().theme!=='default'){
+                $('#bootstrap_theme').attr('href','https://bootswatch.com/'+Auth.getCurrentUser().theme+'bootstrap.min.css');
+             }
+              else{
+                $('#bootstrap_theme').attr('href','#');
+              }
           }
         },500);
 
@@ -21,51 +23,53 @@
               $anchorScroll();
         };
 
-      var $button = $("<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>").click(function(){
-        var html = $(this).parent().html();
-        html = cleanSource(html);
-        $("#source-modal pre").text(html);
-        $("#source-modal").modal();
-      });
+        function cleanSource(html) {
+          html = html.replace(/×/g, '&times;')
+                   .replace(/«/g, '&laquo;')
+                   .replace(/»/g, '&raquo;')
+                   .replace(/←/g, '&larr;')
+                   .replace(/→/g, '&rarr;');
+                   
+          var lines = html.split(/\n/);
 
-      $('.bs-component [data-toggle="popover"]').popover();
-      $('.bs-component [data-toggle="tooltip"]').tooltip();
+          lines.shift();
+          lines.splice(-1, 1);
 
-      $(".bs-component").hover(function(){
-          $(this).append($button);
-          $button.show();
+          var indentSize = lines[0].length - lines[0].trim().length,
+              re = new RegExp(' {' + indentSize + '}');
 
-      }, function(){
-        $button.hide();
-      });
+          lines = lines.map(function(line){
+            if (line.match(re)) {
+              line = line.substring(indentSize);
+            }
 
-      function cleanSource(html) {
-        html = html.replace(/×/g, "&times;")
-                 .replace(/«/g, "&laquo;")
-                 .replace(/»/g, "&raquo;")
-                 .replace(/←/g, "&larr;")
-                 .replace(/→/g, "&rarr;");
-                 
-        var lines = html.split(/\n/);
+            return line;
+          });
 
-        lines.shift();
-        lines.splice(-1, 1);
+          lines = lines.join('\n');
 
-        var indentSize = lines[0].length - lines[0].trim().length,
-            re = new RegExp(" {" + indentSize + "}");
+          return lines;
+        }
 
-        lines = lines.map(function(line){
-          if (line.match(re)) {
-            line = line.substring(indentSize);
-          }
-
-          return line;
+        var $button = $('<div id=\'source-button\' class=\'btn btn-primary btn-xs\'>&lt; &gt;</div>').click(function(){
+            var html = $(this).parent().html();
+            html = cleanSource(html);
+            $('#source-modal pre').text(html);
+            $('#source-modal').modal();
         });
 
-        lines = lines.join("\n");
+        $('.bs-component [data-toggle="popover"]').popover();
+        $('.bs-component [data-toggle="tooltip"]').tooltip();
 
-        return lines;
-      }
+        $('.bs-component').hover(function(){
+            $(this).append($button);
+            $button.show();
+
+        }, function(){
+          $button.hide();
+        });
+
+    
       }
     });
 })();

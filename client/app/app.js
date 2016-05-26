@@ -7,7 +7,7 @@ angular.module('bootswatchApp', ['bootswatchApp.auth', 'bootswatchApp.admin',
   .config(function($routeProvider, $locationProvider) {
     $routeProvider.otherwise({
       redirectTo: '/'
-    })
+    });
     $locationProvider.html5Mode(true);
   })
   .run(['menuService',
@@ -23,6 +23,6 @@ angular.module('bootswatchApp', ['bootswatchApp.auth', 'bootswatchApp.admin',
 	      roles: ['user']
 	    });
   
-  }])
+  }]);
 
   

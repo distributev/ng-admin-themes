@@ -23,19 +23,18 @@ class SettingsController {
     }
   }
   changeTheme(name){
-              if(name!="default")
-                  $("#bootstrap_theme").attr("href","https://bootswatch.com/"+name+"/bootstrap.min.css");
-                else
-                  $("#bootstrap_theme").attr("href","#" );
+      if(name!=='default'){
+         $('#bootstrap_theme').attr('href','https://bootswatch.com/'+name+'/bootstrap.min.css');
+      }else{
+         $('#bootstrap_theme').attr('href','#');
+      }            
       this.Auth.changeTheme(name)
         .then(() => {
-          this.message = 'Password successfully changed.';
+          this.message = 'Theme updated!';
         })
         .catch(() => {
         });
-
-  };
-
+  }
 }
 
 angular.module('bootswatchApp')
