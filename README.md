@@ -43,7 +43,13 @@ Also update account settings controller in client/app/account/settings to add ch
 
 I add Menus service in client/app/service  and modify client/app/app.js to add menuItem using menu service  
 
-In the server end I add change theme function to save theme in sqlite database, when create new user, theme was set to "default"  
+In the server end I add change theme function to save theme in sqlite database, when create new user, theme was set to "default"    
+
+For changing the theme I replace the boostrap css file original href to the theme one user selected and browser will load the bootsrap with that theme.  
+
+In the main controller,code is mainly responsible for load the theme after login and makes to bootswatch page work as original website  
+
+
 
 
 
