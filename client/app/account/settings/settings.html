@@ -49,26 +49,26 @@
     </div>
   </div>
    <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">{{theme}} <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a ng-click="vm.changeTheme('default')">Default</a></li>
                 <li class="divider"></li>
-                <li><a ng-click="vm.changeTheme('cerulean')" id="cerulean" >Cerulean</a></li>
-                <li><a ng-click="vm.changeTheme('cosmo')" id="cosmo" style="cursor: pointer;">Cosmo</a></li>
-                <li><a ng-click="vm.changeTheme('cyborg')" id="cyborg" style="cursor: pointer;">Cyborg</a></li>
-                <li><a ng-click="vm.changeTheme('darkly')"  id="darkly" style="cursor: pointer;">Darkly</a></li>
-                <li><a ng-click="vm.changeTheme('flatly')" id="flatly" style="cursor: pointer;">Flatly</a></li>
-                <li><a ng-click="vm.changeTheme('journal')"  id="journal" style="cursor: pointer;">Journal</a></li>
-                <li><a ng-click="vm.changeTheme('lumen')"  id="lumen" style="cursor: pointer;">Lumen</a></li>
-                <li><a ng-click="vm.changeTheme('paper')" id="paper" style="cursor: pointer;">Paper</a></li>
-                <li><a ng-click="vm.changeTheme('readable')"  id="readable" style="cursor: pointer;">Readable</a></li>
-                <li><a ng-click="vm.changeTheme('sandstone')" id="sandstone" style="cursor: pointer;">Sandstone</a></li>
-                <li><a ng-click="vm.changeTheme('simplex')" id="simplex" style="cursor: pointer;">Simplex</a></li>
-                <li><a ng-click="vm.changeTheme('slate')" id="slate" style="cursor: pointer;">Slate</a></li>
-                <li><a ng-click="vm.changeTheme('spacelab')" id="spacelab" style="cursor: pointer;">Spacelab</a></li>
-                <li><a ng-click="vm.changeTheme('superhero')"  id="superhero" style="cursor: pointer;">Superhero</a></li>
-                <li><a ng-click="vm.changeTheme('united')"  id="united" >United</a></li>
-                <li><a ng-click="vm.changeTheme('yeti')"  id="yeti" style="cursor: pointer;">Yeti</a></li>
+                <li><a ng-click="vm.changeTheme('cerulean')" ng-model="theme" value="cerulean" id="cerulean" >Cerulean</a></li>
+                <li><a ng-click="vm.changeTheme('cosmo')" ng-model="theme" id="cosmo" value="cosmo"  style="cursor: pointer;">Cosmo</a></li>
+                <li><a ng-click="vm.changeTheme('cyborg')" ng-model="theme" id="cyborg" value="cyborg"  style="cursor: pointer;">Cyborg</a></li>
+                <li><a ng-click="vm.changeTheme('darkly')"  ng-model="theme" id="darkly" value="darkly"  style="cursor: pointer;">Darkly</a></li>
+                <li><a ng-click="vm.changeTheme('flatly')" ng-model="theme" id="flatly" value="flatly"  style="cursor: pointer;">Flatly</a></li>
+                <li><a ng-click="vm.changeTheme('journal')"  ng-model="theme" id="journal" value="journal"  style="cursor: pointer;">Journal</a></li>
+                <li><a ng-click="vm.changeTheme('lumen')"  ng-model="theme" id="lumen" value="lumen"  style="cursor: pointer;">Lumen</a></li>
+                <li><a ng-click="vm.changeTheme('paper')" ng-model="theme" id="paper" value="paper"  style="cursor: pointer;">Paper</a></li>
+                <li><a ng-click="vm.changeTheme('readable')"  ng-model="theme" id="readable" value="readable"  style="cursor: pointer;">Readable</a></li>
+                <li><a ng-click="vm.changeTheme('sandstone')" ng-model="theme" id="sandstone" value="sandstone"  style="cursor: pointer;">Sandstone</a></li>
+                <li><a ng-click="vm.changeTheme('simplex')" ng-model="theme" id="simplex" value="simplex"  style="cursor: pointer;">Simplex</a></li>
+                <li><a ng-click="vm.changeTheme('slate')" ng-model="theme" id="slate" value="slate"  style="cursor: pointer;">Slate</a></li>
+                <li><a ng-click="vm.changeTheme('spacelab')" ng-model="theme" id="spacelab" value="spacelab"  style="cursor: pointer;">Spacelab</a></li>
+                <li><a ng-click="vm.changeTheme('superhero')"  ng-model="theme" id="superhero" value="superhero"  style="cursor: pointer;">Superhero</a></li>
+                <li><a ng-click="vm.changeTheme('united')"  ng-model="theme" id="united" value="united" >United</a></li>
+                <li><a ng-click="vm.changeTheme('yeti')"  ng-model="theme" id="yeti" value="yeti"  style="cursor: pointer;">Yeti</a></li>
               </ul>
             </li>
 </div>

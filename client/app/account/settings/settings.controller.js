@@ -2,9 +2,11 @@
 
 class SettingsController {
 
-  constructor(Auth,$location) {
+  constructor(Auth,$location,$scope) {
     this.Auth = Auth;
     this.$location = $location;
+    this.$scope = $scope;
+    this.$scope.theme = this.Auth.getCurrentUser().theme;
   }
 
   changePassword(form) {
@@ -28,7 +30,8 @@ class SettingsController {
       }else{
          $('#bootstrap_theme').attr('href','#');
       } 
-      this.Auth.getCurrentUser().theme = name;           
+      this.Auth.getCurrentUser().theme = name; 
+      this.$scope .theme = name;          
       this.Auth.changeTheme(name)
         .then(() => {
           this.message = 'Theme updated!';
