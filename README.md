@@ -56,3 +56,5 @@ In the main controller,code is mainly responsible for load the theme after login
 
 
 
+# ng-admin-bootswatch
+Demo of Angular + Admin theme + bootswatch
