@@ -12,16 +12,23 @@ angular.module('bootswatchApp', ['bootswatchApp.auth', 'bootswatchApp.admin',
   })
   .run(['menuService',
 	  function(menuService) {
-	    menuService.addMenu('account', {
+	    menuService.addMenu('nav', {
 	      roles: ['user']
 	    });
 
-	    menuService.addMenuItem('account', {
-	      title: 'Account',
-	      state: 'settings',
+	    menuService.addMenuItem('nav', {
+	      title: 'Customers',
+	      state: 'customers',
 	      type: 'dropdown',
 	      roles: ['user']
 	    });
+
+      menuService.addMenuItem('nav', {
+        title: 'Transactions',
+        state: 'transactions',
+        type: 'dropdown',
+        roles: ['user']
+      });
   
   }]);
 

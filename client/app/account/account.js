@@ -17,6 +17,16 @@ angular.module('bootswatchApp')
           $location.path(referrer);
         }
       })
+      .when('/customers', {
+        templateUrl: 'app/account/customers/customers.html',
+        controller: 'SignupController',
+        controllerAs: 'vm'
+      })
+      .when('/transactions', {
+        templateUrl: 'app/account/transactions/transactions.html',
+        controller: 'SignupController',
+        controllerAs: 'vm'
+      })
       .when('/signup', {
         templateUrl: 'app/account/signup/signup.html',
         controller: 'SignupController',

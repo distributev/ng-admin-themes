@@ -7,6 +7,7 @@
       templateUrl: 'app/main/main.html',
       controller: function($http,$scope,$timeout,$location,$anchorScroll,Auth){
         $timeout(function(){
+          
           $scope.authenticate = Auth.getCurrentUser().token?true:false;
            if(Auth.getCurrentUser().theme){
              if(Auth.getCurrentUser().theme!=='default'){

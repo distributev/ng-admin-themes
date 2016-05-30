@@ -99,10 +99,13 @@
     // Get the menu object by menu id
     function getMenu(menuId) {
       // Validate that the menu exists
+      
+
       service.validateMenuExistance(menuId);
 
       // Return the menu object
       return service.menus[menuId];
+      
     }
 
     function init() {
