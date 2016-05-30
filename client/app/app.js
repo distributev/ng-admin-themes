@@ -10,8 +10,30 @@ angular.module('bootswatchApp', ['bootswatchApp.auth', 'bootswatchApp.admin',
     });
     $locationProvider.html5Mode(true);
   })
-  .run(['menuService',
-	  function(menuService) {
+  .run(['menuService','Auth','$timeout','$rootScope',
+	  function(menuService, Auth, $timeout, $rootScope) {
+
+       
+           
+          $timeout(function() {
+           if(Auth.getCurrentUser().theme){
+             if(Auth.getCurrentUser().theme!=='default'){
+                $('#bootstrap_theme').attr('href','https://bootswatch.com/'+Auth.getCurrentUser().theme+'/bootstrap.min.css');
+             }
+              else{
+                $('#bootstrap_theme').attr('href','https://bootswatch.com/default/bootstrap.min.css');
+              }
+              
+          } 
+          $rootScope.showPage = true;
+
+        }, 1000);
+      
+       
+
+    
+
+
 	    menuService.addMenu('nav', {
 	      roles: ['user']
 	    });
