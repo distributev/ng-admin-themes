@@ -1,3 +1,4 @@
+
 /**
  * Sequelize initialization module
  */
