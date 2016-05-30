@@ -1,3 +1,4 @@
+
 'use strict';
 
 class NavbarController {
@@ -44,6 +45,7 @@ class NavbarController {
         });
   }
 }
+
 
 angular.module('bootswatchApp')
   .controller('NavbarController', NavbarController);

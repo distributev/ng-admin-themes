@@ -1,3 +1,4 @@
+
 'use strict';
 
 angular.module('bootswatchApp.auth', ['bootswatchApp.constants', 'bootswatchApp.util', 'ngCookies',
