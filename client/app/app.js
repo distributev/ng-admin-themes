@@ -1,3 +1,4 @@
+
 'use strict';
 
 angular.module('ngAdminBootswatchApp', ['ngAdminBootswatchApp.auth', 'ngAdminBootswatchApp.admin',
