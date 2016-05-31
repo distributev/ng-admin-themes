@@ -8,10 +8,8 @@ dist
 /server/config/local.env.js
 npm-debug.log
 coverage
-=======
 npm-debug.log
 coverage
-=======
 # Logs
 logs
 *.log
