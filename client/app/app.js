@@ -1,6 +1,7 @@
 
 'use strict';
 
+
 angular.module('ngAdminBootswatchApp', ['ngAdminBootswatchApp.auth', 'ngAdminBootswatchApp.admin',
     'ngAdminBootswatchApp.constants', 'ngCookies', 'ngResource', 'ngSanitize', 'ui.router',
     'ui.bootstrap', 'validation.match','Menus'
