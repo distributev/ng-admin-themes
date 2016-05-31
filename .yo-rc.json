@@ -21,7 +21,7 @@
       "css": true,
       "uirouter": true,
       "bootstrap": true,
-      "uibootstrap": true,
+      "uibootstrap": false,
       "auth": true,
       "models": true,
       "sequelizeModels": true,

@@ -44,7 +44,7 @@ module.exports = function makeWebpackConfig(options) {
                 'angular-aria',
                 'angular-cookies',
                 'angular-resource',
-
+		'bootstrap',
                 'angular-sanitize',
                 'angular-socket-io',
                 'angular-ui-bootstrap',
