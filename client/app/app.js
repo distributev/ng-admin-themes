@@ -8,21 +8,29 @@ angular.module('ngAdminBootswatchApp', ['ngAdminBootswatchApp.auth', 'ngAdminBoo
   ]).run(['menuService','Auth','$timeout','$rootScope',
 	  function(menuService, Auth, $timeout, $rootScope) {
 
-       
-           
+          
+            
           $timeout(function() {
+            var user = Auth.getCurrentUser();
            if(Auth.getCurrentUser().theme){
-           	
+           	  
              if(Auth.getCurrentUser().theme!=='default'){
                 $('#bootstrap_theme').attr('href','https://bootswatch.com/'+Auth.getCurrentUser().theme+'/bootstrap.min.css');
              }
               else{
+
                 $('#bootstrap_theme').attr('href','https://bootswatch.com/default/bootstrap.min.css');
               }
-              
-          } 
-          $rootScope.showPage = true;
+          
+           
 
+              
+          }
+          if(user.email) {
+           $rootScope.loggedIn = true;
+           $rootScope.userPage = true; // to avoid theme flickering
+          }
+          
         }, 1000);
       
        
