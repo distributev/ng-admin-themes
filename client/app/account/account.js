@@ -13,9 +13,11 @@ angular.module('ngAdminBootswatchApp')
         referrer: 'main',
         template: '',
         controller: function($state, Auth) {
-          var referrer = $state.params.referrer || $state.current.referrer || 'main';
+          var referrer = $state.params.referrer || $state.current.referrer || 'login';
+          
           Auth.logout();
           $state.go(referrer);
+         
         }
       })
       .state('customers', {
@@ -44,8 +46,29 @@ angular.module('ngAdminBootswatchApp')
         authenticate: true
       });
   })
-  .run(function($rootScope) {
+  .run(function($rootScope, $state, $window, $timeout, Auth) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
+      
+      var user = Auth.getCurrentUser();
+      // redirect user to login page if not logged in
+      $timeout(function() {
+         var storedTheme = $window.localStorage.getItem('theme');
+            
+        if(!user.email) {
+          if(storedTheme) {
+            
+              $('#bootstrap_theme').attr('href','https://bootswatch.com/'+storedTheme+'/bootstrap.min.css');
+          }
+          event.preventDefault();
+          $state.go('login');
+          $timeout(function() {  $rootScope.userPage = true; }, 500);
+         
+        }
+      }, 1000);    
+           
+
+      
+      
       if (next.name === 'logout' && current && current.name && !current.authenticate) {
         next.referrer = current.name;
       }
