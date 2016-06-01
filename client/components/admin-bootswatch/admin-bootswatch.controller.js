@@ -5,7 +5,7 @@ class NavbarController {
   //end-non-standard
 
   //start-non-standard
-  constructor($location, $scope, Auth,menuService) {
+  constructor($location, $scope, Auth,menuService, $window) {
     this.$location = $location;
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
@@ -14,6 +14,7 @@ class NavbarController {
     this.$scope = $scope;
     this.$scope.theme = this.Auth.getCurrentUser().theme;
     this.menu = menuService.getMenu('nav');
+    this.$window = $window;
     
 
    
@@ -37,7 +38,8 @@ class NavbarController {
          $('#bootstrap_theme').attr('href','#');
       } 
       this.Auth.getCurrentUser().theme = name; 
-      this.$scope .theme = name;          
+      this.$scope .theme = name;
+      this.$window.localStorage.setItem('theme', name);          
       this.Auth.changeTheme(name)
         .then(() => {
           this.message = 'Theme updated!';
