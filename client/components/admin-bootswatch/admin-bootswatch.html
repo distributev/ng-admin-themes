@@ -118,7 +118,7 @@ footer {
         <li ng-show="nav.isLoggedIn()" ng-class="{active: nav.isActive('/settings')}"><a href="/settings">Profile</a></li>
         <li ng-show="nav.isLoggedIn()"><a href="/logout">Logout</a></li>
       </ul>
-      <form class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right" ng-if='loggedIn'>
             <input type="text" class="form-control" placeholder="Search...">
           </form>
     </div>
