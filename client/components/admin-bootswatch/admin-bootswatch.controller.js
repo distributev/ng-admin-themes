@@ -5,7 +5,7 @@ class NavbarController {
   //end-non-standard
 
   //start-non-standard
-  constructor($location, $scope, Auth,menuService, $window, $timeout) {
+  constructor($location, $scope, Auth,menuService, $window) {
 
     this.$location = $location;
     this.isLoggedIn = Auth.isLoggedIn;
@@ -43,7 +43,7 @@ class NavbarController {
 
 
   changeTheme(name){
-  var that = this;    
+    
       if(name!=='default'){
          $('#bootstrap_theme').attr('href','https://bootswatch.com/'+name+'/bootstrap.min.css');
       }else{
