@@ -61,6 +61,11 @@ footer {
   background-color: #428bca;
 }
 
+.nav-sidebar > .active > a:hover {
+  background-color: black !important;
+  
+}
+
 /*
  * Main content
  */
@@ -95,7 +100,7 @@ footer {
 
           <li ng-if='loggedIn' class="navbar-brand dropdown" style='list-style: none;'>
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
-                Themes<span class="caret"></span></a>
+                <span style='color:#ffffff'>{{nav.menuName()}}</span><span class="caret" style='color:#ffffff'></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a ng-click="nav.changeTheme('default')" style="cursor: pointer;">Default</a></li>
                 <li class="divider"></li>

@@ -13,10 +13,12 @@ angular.module('ngAdminBootswatchApp')
         referrer: 'main',
         template: '',
         controller: function($state, Auth) {
-          var referrer = $state.params.referrer || $state.current.referrer || 'login';
+         
           
           Auth.logout();
-          $state.go(referrer);
+         
+          $state.go('login', {}, {reload: true});
+        
          
         }
       })
@@ -53,7 +55,9 @@ angular.module('ngAdminBootswatchApp')
       // redirect user to login page if not logged in
       $timeout(function() {
       Auth.getCurrentUser(function(user) {
-       
+        if(user.email && next.name === 'login') {
+          $state.go('customers');
+        }
             
         if(!user.email) {
           var storedTheme = $window.localStorage.getItem('theme');
