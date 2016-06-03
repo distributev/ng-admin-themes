@@ -1,4 +1,4 @@
-// Generated on 2016-05-31 using generator-angular-fullstack 3.7.4
+// Generated on 2016-06-03 using generator-angular-fullstack 3.7.4
 'use strict';
 
 import _ from 'lodash';
@@ -247,6 +247,32 @@ gulp.task('transpile:server', () => {
         .pipe(gulp.dest(`${paths.dist}/${serverPath}`));
 });
 
+gulp.task('lint:scripts', cb => runSequence(['lint:scripts:client', 'lint:scripts:server'], cb));
+
+gulp.task('lint:scripts:client', () => {
+    return gulp.src(_.union(
+        paths.client.scripts,
+        _.map(paths.client.test, blob => '!' + blob),
+        [`!${clientPath}/app/app.constant.js`]
+    ))
+        .pipe(lintClientScripts());
+});
+
+gulp.task('lint:scripts:server', () => {
+    return gulp.src(_.union(paths.server.scripts, _.map(paths.server.test, blob => '!' + blob)))
+        .pipe(lintServerScripts());
+});
+
+gulp.task('lint:scripts:clientTest', () => {
+    return gulp.src(paths.client.test)
+        .pipe(lintClientScripts());
+});
+
+gulp.task('lint:scripts:serverTest', () => {
+    return gulp.src(paths.server.test)
+        .pipe(lintServerTestScripts());
+});
+
 gulp.task('jscs', () => {
   return gulp.src(_.union(paths.client.scripts, paths.server.scripts))
       .pipe(plugins.jscs())
@@ -321,7 +347,7 @@ gulp.task('watch', () => {
 
 gulp.task('serve', cb => {
     runSequence(['clean:tmp', 'constant', 'env:all'],
-        
+        ['lint:scripts', 'inject'],
         ['wiredep:client'],
         ['transpile:client', 'styles'],
         ['start:server', 'start:client'],
@@ -340,7 +366,7 @@ gulp.task('serve:dist', cb => {
 
 gulp.task('serve:debug', cb => {
     runSequence(['clean:tmp', 'constant'],
-        
+        ['lint:scripts', 'inject'],
         ['wiredep:client'],
         ['transpile:client', 'styles'],
         'start:inspector',

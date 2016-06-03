@@ -11,27 +11,27 @@ angular.module('ngAdminBootswatchApp', ['ngAdminBootswatchApp.auth', 'ngAdminBoo
           
             
           $timeout(function() {
-            var user = Auth.getCurrentUser();
-           if(Auth.getCurrentUser().theme){
-           	  
-             if(Auth.getCurrentUser().theme!=='default'){
-                $('#bootstrap_theme').attr('href','https://bootswatch.com/'+Auth.getCurrentUser().theme+'/bootstrap.min.css');
+           
+           
+          Auth.getCurrentUser(function(user) {
+
+            if(user.theme!=='default'){
+                $('#bootstrap_theme').attr('href','https://bootswatch.com/'+user.theme+'/bootstrap.min.css');
              }
               else{
 
                 $('#bootstrap_theme').attr('href','https://bootswatch.com/default/bootstrap.min.css');
               }
-          
-           
 
-              
-          }
           if(user.email) {
            $rootScope.loggedIn = true;
            $rootScope.userPage = true; // to avoid theme flickering
           }
+
+          });
           
-        }, 1000);
+          
+        }, 500);
       
        
 

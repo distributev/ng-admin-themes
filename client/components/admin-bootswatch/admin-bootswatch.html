@@ -1,4 +1,6 @@
 <style>
+
+
 /*
  * Style tweaks
  * --------------------------------------------------
@@ -63,6 +65,20 @@ footer {
  * Main content
  */
 
+.main {
+  padding: 20px;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
 
 
 </style>
@@ -81,7 +97,7 @@ footer {
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
                 Themes<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a ng-click="changeTheme('default')" style="cursor: pointer;">Default</a></li>
+                <li><a ng-click="nav.changeTheme('default')" style="cursor: pointer;">Default</a></li>
                 <li class="divider"></li>
                 <li><a ng-click="nav.changeTheme('cerulean')" ng-model="theme" value="cerulean" id="cerulean" style="cursor: pointer;">Cerulean</a></li>
                 <li><a ng-click="nav.changeTheme('cosmo')" ng-model="theme" id="cosmo" value="cosmo"  style="cursor: pointer;">Cosmo</a></li>

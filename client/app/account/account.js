@@ -49,22 +49,27 @@ angular.module('ngAdminBootswatchApp')
   .run(function($rootScope, $state, $window, $timeout, Auth) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
       
-      var user = Auth.getCurrentUser();
+      
       // redirect user to login page if not logged in
       $timeout(function() {
-         var storedTheme = $window.localStorage.getItem('theme');
+      Auth.getCurrentUser(function(user) {
+       
             
         if(!user.email) {
+          var storedTheme = $window.localStorage.getItem('theme');
           if(storedTheme) {
             
               $('#bootstrap_theme').attr('href','https://bootswatch.com/'+storedTheme+'/bootstrap.min.css');
           }
+          
           event.preventDefault();
           $state.go('login');
           $timeout(function() {  $rootScope.userPage = true; }, 500);
+          
          
         }
-      }, 1000);    
+      });    
+    }, 500);
            
 
       
