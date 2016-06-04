@@ -7,13 +7,7 @@ module.exports = function(config) {
     basePath: '',
 
     // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['mocha', 'chai', 'sinon-chai', 'chai-as-promised', 'chai-things'],
-
-    client: {
-      mocha: {
-        timeout: 5000 // set default mocha spec timeout
-      }
-    },
+    frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
     files: [

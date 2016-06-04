@@ -12,11 +12,11 @@ angular.module('ngAdminBootswatchApp')
         url: '/logout?referrer',
         referrer: 'main',
         template: '',
-        controller: function($state, Auth) {
+        controller: function($state, Auth, $rootScope) {
          
           
           Auth.logout();
-         
+          $rootScope.loggedIn = false;
           $state.go('login', {}, {reload: true});
         
          

@@ -21,7 +21,7 @@
       "css": true,
       "uirouter": true,
       "bootstrap": true,
-      "uibootstrap": true,
+      "uibootstrap": false,
       "auth": true,
       "models": true,
       "sequelizeModels": true,
@@ -29,10 +29,10 @@
       "oauth": true,
       "googleAuth": true,
       "gulp": true,
-      "mocha": true,
-      "jasmine": false,
+      "jasmine": true,
+      "mocha": false,
       "should": false,
-      "expect": true
+      "expect": false
     }
   },
   "generator-ng-component": {
@@ -46,8 +46,7 @@
     "modulePrompt": true,
     "filters": [
       "uirouter",
-      "mocha",
-      "expect",
+      "jasmine",
       "uirouter",
       "es6"
     ],

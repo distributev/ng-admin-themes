@@ -1,4 +1,4 @@
-// Generated on 2016-06-03 using generator-angular-fullstack 3.7.4
+// Generated on 2016-06-04 using generator-angular-fullstack 3.7.4
 'use strict';
 
 import _ from 'lodash';
@@ -411,7 +411,6 @@ gulp.task('wiredep:client', () => {
     return gulp.src(paths.client.mainView)
         .pipe(wiredep({
             exclude: [
-                /bootstrap.js/,
                 '/json3/',
                 '/es5-shim/'
             ],
@@ -424,7 +423,6 @@ gulp.task('wiredep:test', () => {
     return gulp.src(paths.karma)
         .pipe(wiredep({
             exclude: [
-                /bootstrap.js/,
                 '/json3/',
                 '/es5-shim/'
             ],

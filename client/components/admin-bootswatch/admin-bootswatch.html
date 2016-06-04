@@ -53,15 +53,15 @@ footer {
   margin-left: -15px;
 }
 .nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
+ // padding-right: 20px;
+ // padding-left: 20px;
 }
 .nav-sidebar > .active > a {
   color: #fff;
   background-color: #428bca;
 }
 
-.nav-sidebar > .active > a:hover {
+.nav-sidebar > li >  a:hover {
   background-color: black !important;
   
 }
@@ -100,7 +100,7 @@ footer {
 
           <li ng-if='loggedIn' class="navbar-brand dropdown" style='list-style: none;'>
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
-                <span style='color:#ffffff'>{{nav.menuName()}}</span><span class="caret" style='color:#ffffff'></span></a>
+                <span class='navbar-brand' style='padding: 0px; margin-left: 10px;'>{{nav.menuName()}}</span><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a ng-click="nav.changeTheme('default')" style="cursor: pointer;">Default</a></li>
                 <li class="divider"></li>
@@ -153,7 +153,7 @@ footer {
          <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
              <ul class="nav nav-sidebar">
 <li ng-repeat="item in nav.menu.items"  ng-class="{active: nav.isActive('/'+item.state)}">
-            <a    ng-href="{{item.state}}">{{item.title}}</a>
+            <a class='navbar-brand' style='float: none;'     ng-href="{{item.state}}">{{item.title}}</a>
         </li>
         
       </ul>
