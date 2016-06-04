@@ -1,7 +1,7 @@
 'use strict';
 
 class LoginController {
-  constructor(Auth, $state, $rootScope) {
+  constructor(Auth, $state, $rootScope, $window, themeService) {
     this.user = {};
     this.errors = {};
     this.submitted = false;
@@ -9,6 +9,8 @@ class LoginController {
     this.Auth = Auth;
     this.$state = $state;
     this.$rootScope = $rootScope;
+    this.$window = $window;
+    this.themeService = themeService;
    
 
   }
@@ -23,8 +25,16 @@ class LoginController {
         })
         .then(() => {
           // Logged in, redirect to home
-          this.$state.go('customers');
-          this.$rootScope.loggedIn = true;
+          var state = this.$state,
+              rootScope = this.$rootScope;
+          this.themeService.theme(function() {
+            
+             state.go('customers');
+             rootScope.loggedIn = true;
+
+          });
+         
+
              
         })
         .catch(err => {
