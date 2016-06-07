@@ -2,7 +2,7 @@
 
 angular.module('ngAdminBootswatchApp', ['ngAdminBootswatchApp.auth', 'ngAdminBootswatchApp.admin',
     'ngAdminBootswatchApp.constants', 'ngCookies', 'ngResource', 'ngSanitize', 'ui.router',
-    'validation.match','Menus','Themes','MailMerge'
+    'validation.match','Menus','Themes'
   ])
  .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');

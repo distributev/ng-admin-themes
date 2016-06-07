@@ -20,15 +20,6 @@
         </li>
       </ul>
 
-      <ul>
-          <ng-mail-merge template="'invoice'" label-button="'Send Invoice(Data)'" label-button-popup="'Send Invoice'" dataid="'myData'" ></ng-mail-merge>
-
-          <ng-mail-merge template="'invoice'" label-button="'Send Invoice(DataTable)'" label-button-popup="'Send Invoice'"  tableid="'myTable'"></ng-mail-merge>
-
-          <ng-mail-merge template="'invoice'" label-button="'Send Invoice(Adhoc)'" label-button-popup="'Send Invoice'" ></ng-mail-merge>
-
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
