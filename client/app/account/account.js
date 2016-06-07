@@ -56,9 +56,8 @@ angular.module('ngAdminBootswatchApp')
       }
       
       if($window.localStorage.getItem('isAuthenticate') !== 'true'){
-          console.log("asdasdasd")
           event.preventDefault(); 
-           $state.go('login');
+          $state.go('login');
       }
 
       if (next.name === 'logout' && current && current.name && !current.authenticate) {
