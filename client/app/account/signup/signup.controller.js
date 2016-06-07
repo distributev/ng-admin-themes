@@ -3,9 +3,10 @@
 class SignupController {
   //end-non-standard
 
-  constructor(Auth, $state) {
+  constructor(Auth, $state, $window) {
       this.Auth = Auth;
       this.$state = $state;
+      this.$window= $window;
     }
     //start-non-standard
 
@@ -21,7 +22,9 @@ class SignupController {
         })
         .then(() => {
           // Account created, redirect to home
-          this.$state.go('main');
+          this.$window.localStorage.setItem('isAuthenticate', true);         
+          this.$state.go('customers');
+
         })
         .catch(err => {
           err = err.data;

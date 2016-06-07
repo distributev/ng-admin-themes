@@ -12,14 +12,11 @@ angular.module('ngAdminBootswatchApp')
         url: '/logout?referrer',
         referrer: 'main',
         template: '',
-        controller: function($state, Auth, $rootScope) {
-         
-          
-          Auth.logout();
-          $rootScope.loggedIn = false;
+        controller: function($state, $window,Auth) {
+          Auth.logout();  
+          $window.localStorage.setItem('isAuthenticate', false);    
           $state.go('login', {}, {reload: true});
-        
-         
+
         }
       })
       .state('customers', {
@@ -51,33 +48,19 @@ angular.module('ngAdminBootswatchApp')
   .run(function($rootScope, $state, $window, $timeout, Auth) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
       
+      var isLogin = next.name === "login";
+      var isSignup = next.name === "signup";
+      var isLogout =  next.name === "logout";
+      if(isLogin || isSignup || isLogout || next.name === 'customers' || $window.localStorage.getItem('isAuthenticate') === 'true'){
+           return; // no need to redirect 
+      }
       
-      // redirect user to login page if not logged in
-      $timeout(function() {
-      Auth.getCurrentUser(function(user) {
-        if(user.email && next.name === 'login') {
-          $state.go('customers');
-        }
-            
-        if(!user.email) {
-          var storedTheme = $window.localStorage.getItem('theme');
-          if(storedTheme) {
-            
-              $('#bootstrap_theme').attr('href','https://bootswatch.com/'+storedTheme+'/bootstrap.min.css');
-          }
-          
-          event.preventDefault();
-          $state.go('login');
-          $timeout(function() {  $rootScope.userPage = true; }, 500);
-          
-         
-        }
-      });    
-    }, 500);
-           
+      if($window.localStorage.getItem('isAuthenticate') !== 'true'){
+          console.log("asdasdasd")
+          event.preventDefault(); 
+           $state.go('login');
+      }
 
-      
-      
       if (next.name === 'logout' && current && current.name && !current.authenticate) {
         next.referrer = current.name;
       }

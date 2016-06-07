@@ -87,76 +87,79 @@ footer {
 
 
 </style>
-<nav ng-cloak class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="adminNavController">
+<nav  ng-cloak class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
       <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Demo</a>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Demo</a>
 
-          <li ng-if='loggedIn' class="navbar-brand dropdown" style='list-style: none;'>
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
-                <span class='navbar-brand' style='padding: 0px; margin-left: 10px;'>{{nav.menuName()}}</span><span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a ng-click="nav.changeTheme('default')" style="cursor: pointer;">Default</a></li>
-                <li class="divider"></li>
-                <li><a ng-click="nav.changeTheme('cerulean')" ng-model="theme" value="cerulean" id="cerulean" style="cursor: pointer;">Cerulean</a></li>
-                <li><a ng-click="nav.changeTheme('cosmo')" ng-model="theme" id="cosmo" value="cosmo"  style="cursor: pointer;">Cosmo</a></li>
-                <li><a ng-click="nav.changeTheme('cyborg')" ng-model="theme" id="cyborg" value="cyborg"  style="cursor: pointer;">Cyborg</a></li>
-                <li><a ng-click="nav.changeTheme('darkly')"  ng-model="theme" id="darkly" value="darkly"  style="cursor: pointer;">Darkly</a></li>
-                <li><a ng-click="nav.changeTheme('flatly')" ng-model="theme" id="flatly" value="flatly"  style="cursor: pointer;">Flatly</a></li>
-                <li><a ng-click="nav.changeTheme('journal')"  ng-model="theme" id="journal" value="journal"  style="cursor: pointer;">Journal</a></li>
-                <li><a ng-click="nav.changeTheme('lumen')"  ng-model="theme" id="lumen" value="lumen"  style="cursor: pointer;">Lumen</a></li>
-                <li><a ng-click="nav.changeTheme('paper')" ng-model="theme" id="paper" value="paper"  style="cursor: pointer;">Paper</a></li>
-                <li><a ng-click="nav.changeTheme('readable')"  ng-model="theme" id="readable" value="readable"  style="cursor: pointer;">Readable</a></li>
-                <li><a ng-click="nav.changeTheme('sandstone')" ng-model="theme" id="sandstone" value="sandstone"  style="cursor: pointer;">Sandstone</a></li>
-                <li><a ng-click="nav.changeTheme('simplex')" ng-model="theme" id="simplex" value="simplex"  style="cursor: pointer;">Simplex</a></li>
-                <li><a ng-click="nav.changeTheme('slate')" ng-model="theme" id="slate" value="slate"  style="cursor: pointer;">Slate</a></li>
-                <li><a ng-click="nav.changeTheme('spacelab')" ng-model="theme" id="spacelab" value="spacelab"  style="cursor: pointer;">Spacelab</a></li>
-                <li><a ng-click="nav.changeTheme('superhero')"  ng-model="theme" id="superhero" value="superhero"  style="cursor: pointer;">Superhero</a></li>
-                <li><a ng-click="nav.changeTheme('united')"  ng-model="theme" id="united" value="united" >United</a></li>
-                <li><a ng-click="nav.changeTheme('yeti')"  ng-model="theme" id="yeti" value="yeti"  style="cursor: pointer;">Yeti</a></li>
-              </ul>
-            </li>
+            <li  ng-show="isLoggedIn" class="navbar-brand dropdown" style='list-style: none;'>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
+                  <span class='navbar-brand' style='padding: 0px; margin-left: 10px;'>{{themeName}}</span><span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="themes">
+                  <li><a ng-click="changeTheme('Default')" style="cursor: pointer;">Default</a></li>
+                  <li class="divider"></li>
+                  <li><a ng-click="changeTheme('Cerulean')" ng-model="theme" value="cerulean" id="cerulean" style="cursor: pointer;">Cerulean</a></li>
+                  <li><a ng-click="changeTheme('cosmo')" ng-model="theme" id="cosmo" value="cosmo"  style="cursor: pointer;">Cosmo</a></li>
+                  <li><a ng-click="changeTheme('Cyborg')" ng-model="theme" id="cyborg" value="cyborg"  style="cursor: pointer;">Cyborg</a></li>
+                  <li><a ng-click="changeTheme('Darkly')"  ng-model="theme" id="darkly" value="darkly"  style="cursor: pointer;">Darkly</a></li>
+                  <li><a ng-click="changeTheme('Flatly')" ng-model="theme" id="flatly" value="flatly"  style="cursor: pointer;">Flatly</a></li>
+                  <li><a ng-click="changeTheme('Journal')"  ng-model="theme" id="journal" value="journal"  style="cursor: pointer;">Journal</a></li>
+                  <li><a ng-click="changeTheme('Lumen')"  ng-model="theme" id="lumen" value="lumen"  style="cursor: pointer;">Lumen</a></li>
+                  <li><a ng-click="changeTheme('Paper')" ng-model="theme" id="paper" value="paper"  style="cursor: pointer;">Paper</a></li>
+                  <li><a ng-click="changeTheme('Readable')"  ng-model="theme" id="readable" value="readable"  style="cursor: pointer;">Readable</a></li>
+                  <li><a ng-click="changeTheme('Sandstone')" ng-model="theme" id="sandstone" value="sandstone"  style="cursor: pointer;">Sandstone</a></li>
+                  <li><a ng-click="changeTheme('Simplex')" ng-model="theme" id="simplex" value="simplex"  style="cursor: pointer;">Simplex</a></li>
+                  <li><a ng-click="changeTheme('Slate')" ng-model="theme" id="slate" value="slate"  style="cursor: pointer;">Slate</a></li>
+                  <li><a ng-click="changeTheme('Spacelab')" ng-model="theme" id="spacelab" value="spacelab"  style="cursor: pointer;">Spacelab</a></li>
+                  <li><a ng-click="changeTheme('Superhero')"  ng-model="theme" id="superhero" value="superhero"  style="cursor: pointer;">Superhero</a></li>
+                  <li><a ng-click="changeTheme('United')"  ng-model="theme" id="united" value="united" >United</a></li>
+                  <li><a ng-click="changeTheme('Yeti')"  ng-model="theme" id="yeti" value="yeti"  style="cursor: pointer;">Yeti</a></li>
+                </ul>
+              </li>
 
-         
+          <ul ng-show="isLoggedIn" class="nav navbar-nav" >
+            <ng-mail-merge template="'invoice'" label-button="'Send Invoice(Data)'" label-button-popup="'Send Invoice'" dataid="'myData'" ></ng-mail-merge>
 
-        </div>
+            <ng-mail-merge template="'invoice'" label-button="'Send Invoice(DataTable)'" label-button-popup="'Send Invoice'"  tableid="'myTable'"></ng-mail-merge>
+
+            <ng-mail-merge template="'invoice'" label-button="'Send Invoice(Adhoc)'" label-button-popup="'Send Invoice'" ></ng-mail-merge>
+          </ul>
+
+          </div>
 
 
-       <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-     
+         <div  class="navbar-collapse collapse" id="navbar-main">   
+            <ul class="nav navbar-nav navbar-right">
+              <li ng-hide="isLoggedIn" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
+              <li ng-hide="isLoggedIn" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+              
+              <li ng-show="isLoggedIn" ><a href="/settings">Profile</a></li>
+              <li ng-show="isLoggedIn"><a href="/logout">Logout</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" ng-if='isLoggedIn'>
+              <input type="text" class="form-control" placeholder="Search...">
+            </form>
+         </div>
 
-      <ul class="nav navbar-nav navbar-right">
-
-        <li ng-hide="nav.isLoggedIn()" ng-class="{active: nav.isActive('/signup')}"><a href="/signup">Sign up</a></li>
-        <li ng-hide="nav.isLoggedIn()" ng-class="{active: nav.isActive('/login')}"><a href="/login">Login</a></li>
-        
-        <li ng-show="nav.isLoggedIn()" ng-class="{active: nav.isActive('/settings')}"><a href="/settings">Profile</a></li>
-        <li ng-show="nav.isLoggedIn()"><a href="/logout">Logout</a></li>
-      </ul>
-      <form class="navbar-form navbar-right" ng-if='loggedIn'>
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-    </div>
       </div>
+
+    
 </nav>
 
-<div class="container-fluid" ng-if='loggedIn'>
-      
+<div  ng-show="isLoggedIn" class="container-fluid" >
       <div class="row row-offcanvas row-offcanvas-left">
-        
          <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
              <ul class="nav nav-sidebar">
-<li ng-repeat="item in nav.menu.items"  ng-class="{active: nav.isActive('/'+item.state)}">
-            <a class='navbar-brand' style='float: none;'     ng-href="{{item.state}}">{{item.title}}</a>
-        </li>
-        
-      </ul>
-            </div>
+                  <li ng-repeat="item in menu.items"  ng-class="{active: isActive('/'+item.state)}">
+                    <a class='navbar-brand' style='float: none;'     ng-href="{{item.state}}">{{item.title}}</a>
+                  </li>
+            </ul>
+        </div>
   </div>
 </div><!--/.container-->
