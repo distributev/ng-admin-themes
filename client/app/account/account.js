@@ -16,7 +16,6 @@ angular.module('ngAdminBootswatchApp')
           Auth.logout();  
           $window.localStorage.setItem('isAuthenticate', false);    
           $state.go('login', {}, {reload: true});
-
         }
       })
       .state('customers', {
@@ -45,14 +44,25 @@ angular.module('ngAdminBootswatchApp')
         authenticate: true
       });
   })
-  .run(function($rootScope, $state, $window, $timeout, Auth) {
+  .run(function($rootScope, $state, $window) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
       
-      var isLogin = next.name === "login";
-      var isSignup = next.name === "signup";
-      var isLogout =  next.name === "logout";
-      if(isLogin || isSignup || isLogout || next.name === 'customers' || $window.localStorage.getItem('isAuthenticate') === 'true'){
-           return; // no need to redirect 
+      var isLogin = next.name === 'login';
+      var isSignup = next.name === 'signup';
+
+      if(next.name === 'main' && $window.localStorage.getItem('isAuthenticate') === 'true'){
+        event.preventDefault(); 
+        $state.go('customers');
+      }
+      if(isLogin || isSignup){
+        if($window.localStorage.getItem('isAuthenticate') === 'true'){
+             event.preventDefault(); 
+             $state.go('customers');
+
+        }else{
+            return; // no need to redirect 
+        }
+         
       }
       
       if($window.localStorage.getItem('isAuthenticate') !== 'true'){

@@ -11,8 +11,7 @@ angular.module('ngAdminBootswatchApp', ['ngAdminBootswatchApp.auth', 'ngAdminBoo
   })
 
 .run(['menuService','Auth','$timeout','$rootScope','themeService',
-    function(menuService, Auth, $timeout, $rootScope, themeService) {
-
+    function(menuService) {
       menuService.addMenu('nav', {
         roles: ['user']
       });

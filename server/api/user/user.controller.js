@@ -43,7 +43,6 @@ export function index(req, res) {
 export function changeTheme(req, res, next) {
   var userId = req.user._id;
   var theme = String(req.body.theme);
-  console.log(theme);
   return User.find({
     where: {
       _id: userId
@@ -54,7 +53,6 @@ export function changeTheme(req, res, next) {
         user.theme = theme;
         return user.save()
           .then((data) => {
-            console.log(data);
             res.status(204).end();
           })
           .catch(validationError(res));
@@ -164,7 +162,6 @@ export function me(req, res, next) {
       if (!user) {
         return res.status(401).end();
       }
-      console.log(user);
       res.json(user);
     })
     .catch(err => next(err));

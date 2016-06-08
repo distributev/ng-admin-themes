@@ -10,7 +10,19 @@ angular.module('ngAdminBootswatchApp')
 		 	$scope.isLoggedIn = false;
 		 	$scope.Auth = Auth;
 
-		    $scope.$watch('Auth.getCurrentUser().token',function(newVal,oldVal){
+		 	var styleAdjust = function(theme){
+		 		if(theme === 'Sandstone' || theme === 'Flatly' || theme === 'Journal' || theme === 'Paper'|| theme === 'Readable'|| theme === 'Darkly'){
+		 			$('.nav-sidebar').css("margin-top","10px");
+		 		}else if(theme === 'Superhero' || theme === 'Simplex'){
+		 			$('.nav-sidebar').css("margin-top","-10px");
+		 		}else if(theme === 'Default' || theme === 'Cerulean' || theme === 'Cosmo' || theme === 'Lumen' || theme === 'Slate' || theme === 'Spacelab' || theme === 'United'){
+		 			$('.nav-sidebar').css("margin-top","0px");
+		 		}else if(theme === 'Yeti'){
+		 			$('.nav-sidebar').css("margin-top","-5px");
+		 		}
+		 	};
+
+		    $scope.$watch('Auth.getCurrentUser().token',function(newVal){
 			       	if(newVal){
 			       		if($scope.Auth.getCurrentUser().theme){
 				             if($scope.Auth.getCurrentUser().theme!=='default'){
@@ -24,9 +36,10 @@ angular.module('ngAdminBootswatchApp')
 		          			$scope.themeName = 'Default';
 		          			 $('#bootstrap_theme').attr('href','#');
 		          		}
+		          		styleAdjust($scope.themeName);
 		          		$timeout(function(){
 		          			$scope.isLoggedIn = true;
-		          		},500)
+		          		},500);
 		          		
 			       	}else{
 			       		$scope.isLoggedIn = false;
@@ -37,8 +50,9 @@ angular.module('ngAdminBootswatchApp')
 				return route === $location.path();
 			};
 
-			$scope.changeTheme= function(name){
+			$scope.changeTheme = function(name){
 			      $scope.themeName = name;
+			      styleAdjust(name);
 			      if(name!=='default'){
 			         $('#bootstrap_theme').attr('href','https://bootswatch.com/'+name.toLowerCase()+'/bootstrap.min.css');
 			      }else{
@@ -51,7 +65,10 @@ angular.module('ngAdminBootswatchApp')
 			        })
 			        .catch(() => {
 			        });
-			}
+			};
+
+
+
 		  }]
 	};
-})
+});
