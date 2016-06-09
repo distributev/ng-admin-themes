@@ -12,13 +12,13 @@ angular.module('ngAdminBootswatchApp')
 
 		 	var styleAdjust = function(theme){
 		 		if(theme === 'Sandstone' || theme === 'Flatly' || theme === 'Journal' || theme === 'Paper'|| theme === 'Readable'|| theme === 'Darkly'){
-		 			$('.nav-sidebar').css("margin-top","10px");
+		 			$('.nav-sidebar').css('margin-top','10px');
 		 		}else if(theme === 'Superhero' || theme === 'Simplex'){
-		 			$('.nav-sidebar').css("margin-top","-10px");
+		 			$('.nav-sidebar').css('margin-top','-10px');
 		 		}else if(theme === 'Default' || theme === 'Cerulean' || theme === 'Cosmo' || theme === 'Lumen' || theme === 'Slate' || theme === 'Spacelab' || theme === 'United'){
-		 			$('.nav-sidebar').css("margin-top","0px");
+		 			$('.nav-sidebar').css('margin-top','0px');
 		 		}else if(theme === 'Yeti'){
-		 			$('.nav-sidebar').css("margin-top","-5px");
+		 			$('.nav-sidebar').css('margin-top','-5px');
 		 		}
 		 	};
 
@@ -62,6 +62,7 @@ angular.module('ngAdminBootswatchApp')
 			      $scope.Auth.changeTheme(name)
 			        .then(() => {
 			          this.message = 'Theme updated!';
+			          return null;
 			        })
 			        .catch(() => {
 			        });
